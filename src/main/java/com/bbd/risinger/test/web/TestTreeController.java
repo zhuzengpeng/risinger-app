@@ -3,7 +3,7 @@
  */
 package com.bbd.risinger.test.web;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.test.entity.TestTree;
 import com.bbd.risinger.test.service.TestTreeService;
 import com.google.common.collect.Lists;

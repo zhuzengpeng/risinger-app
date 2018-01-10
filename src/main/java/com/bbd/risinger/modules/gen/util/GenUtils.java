@@ -3,7 +3,7 @@
  */
 package com.bbd.risinger.modules.gen.util;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.mapper.JaxbMapper;
 import com.bbd.risinger.common.utils.DateUtils;
 import com.bbd.risinger.common.utils.FileUtils;

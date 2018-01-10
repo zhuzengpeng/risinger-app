@@ -3,11 +3,10 @@
  */
 package com.bbd.risinger.common.persistence.interceptor;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.Page;
 import com.bbd.risinger.common.persistence.dialect.*;
 import com.bbd.risinger.common.utils.Reflections;
-import com.bbd.risinger.common.persistence.dialect.*;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.ibatis.plugin.Interceptor;

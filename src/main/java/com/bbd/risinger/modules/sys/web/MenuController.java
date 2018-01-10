@@ -8,7 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.utils.StringUtils;
 import com.bbd.risinger.common.web.BaseController;
 import com.bbd.risinger.modules.sys.entity.Menu;

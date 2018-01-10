@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.DataEntity;
 import com.bbd.risinger.common.utils.Collections3;
 import org.hibernate.validator.constraints.Email;

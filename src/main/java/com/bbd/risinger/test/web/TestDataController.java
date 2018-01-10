@@ -3,7 +3,7 @@
  */
 package com.bbd.risinger.test.web;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.Page;
 import com.bbd.risinger.common.utils.StringUtils;
 import com.bbd.risinger.common.web.BaseController;

@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.Page;
 import com.bbd.risinger.common.security.Digests;
 import com.bbd.risinger.common.security.shiro.session.SessionDAO;

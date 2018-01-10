@@ -5,7 +5,7 @@ package com.bbd.risinger.modules.sys.entity;
 
 import java.util.List;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.DataEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.Length;

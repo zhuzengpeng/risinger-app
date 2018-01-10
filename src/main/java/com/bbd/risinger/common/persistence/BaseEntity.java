@@ -3,7 +3,7 @@
  */
 package com.bbd.risinger.common.persistence;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.modules.sys.entity.User;
 import com.bbd.risinger.modules.sys.utils.UserUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;

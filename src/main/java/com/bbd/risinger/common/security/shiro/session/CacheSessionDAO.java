@@ -9,7 +9,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.web.Servlets;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;

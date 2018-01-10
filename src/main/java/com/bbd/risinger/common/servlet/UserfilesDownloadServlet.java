@@ -1,6 +1,6 @@
 package com.bbd.risinger.common.servlet;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.FileCopyUtils;

@@ -3,7 +3,7 @@
  */
 package com.bbd.risinger.common.web;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.utils.FileUtils;
 import com.bbd.risinger.modules.sys.security.SystemAuthorizingRealm;
 import com.bbd.risinger.modules.sys.utils.UserUtils;

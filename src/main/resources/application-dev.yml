@@ -16,7 +16,7 @@ server:
       rename-on-rotate: true
 logging:
   level:
-    root: INFO
+    root: DEBUG
     com.bbd: DEBUG
     org.apache.shiro.cache.ehcache.EhCacheManager: WARN
     org.apache.shiro.session.mgt.AbstractValidatingSessionManager: WARN

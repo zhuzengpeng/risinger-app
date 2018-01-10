@@ -22,7 +22,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.google.common.net.HttpHeaders;
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.utils.Encodes;
 import com.bbd.risinger.common.utils.StringUtils;
 import com.bbd.risinger.modules.sys.security.SystemAuthorizingRealm.Principal;

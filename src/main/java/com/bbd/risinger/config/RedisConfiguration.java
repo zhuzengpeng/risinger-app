@@ -1,4 +1,4 @@
-package com.bbd.risinger.common.config;
+package com.bbd.risinger.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

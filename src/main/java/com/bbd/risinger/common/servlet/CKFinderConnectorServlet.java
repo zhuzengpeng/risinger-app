@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.ckfinder.connector.ConnectorServlet;
 import com.bbd.risinger.common.utils.FileUtils;
 import com.bbd.risinger.modules.sys.security.SystemAuthorizingRealm.Principal;

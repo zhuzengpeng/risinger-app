@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
  */
-package com.bbd.risinger.common.config;
+package com.bbd.risinger.config;
 
 import com.ckfinder.connector.ServletContextFactory;
 

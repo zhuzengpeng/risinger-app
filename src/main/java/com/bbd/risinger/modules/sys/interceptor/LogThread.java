@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.utils.CacheUtils;
 import com.bbd.risinger.common.utils.Exceptions;
 import com.bbd.risinger.modules.sys.dao.LogDao;

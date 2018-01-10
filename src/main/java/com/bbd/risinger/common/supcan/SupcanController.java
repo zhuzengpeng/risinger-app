@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.supcan.annotation.treelist.SupTreeList;
 import com.bbd.risinger.common.supcan.annotation.treelist.cols.SupGroup;
 import com.bbd.risinger.common.supcan.treelist.cols.Group;

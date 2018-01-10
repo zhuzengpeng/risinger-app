@@ -1,4 +1,4 @@
-package com.bbd.risinger.common.config;
+package com.bbd.risinger.config;
 
 import com.bbd.risinger.common.security.shiro.session.CacheSessionDAO;
 import com.bbd.risinger.common.security.shiro.session.SessionManager;

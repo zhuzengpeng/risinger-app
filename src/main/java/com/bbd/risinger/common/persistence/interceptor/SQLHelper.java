@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.persistence.Page;
 import com.bbd.risinger.common.utils.Reflections;
 import org.apache.ibatis.executor.ErrorContext;

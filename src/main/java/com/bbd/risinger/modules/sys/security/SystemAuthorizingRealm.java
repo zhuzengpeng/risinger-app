@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import com.bbd.risinger.common.config.Global;
+import com.bbd.risinger.config.Global;
 import com.bbd.risinger.common.utils.Encodes;
 import com.bbd.risinger.common.web.Servlets;
 import com.bbd.risinger.modules.sys.entity.User;

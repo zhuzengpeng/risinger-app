@@ -1,4 +1,4 @@
-package com.bbd.risinger.common.config;
+package com.bbd.risinger.config;
 
 import java.io.Serializable;
 
