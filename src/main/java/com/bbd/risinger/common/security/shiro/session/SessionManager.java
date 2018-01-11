@@ -53,8 +53,9 @@ public class SessionManager extends DefaultWebSessionManager {
 				cookie.setValue(sid); cookie.saveTo(rq, rs);
 			}
 			// 设置当前session状态
+			// session来源与url
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_SOURCE,
-                    ShiroHttpServletRequest.URL_SESSION_ID_SOURCE); // session来源与url
+                    ShiroHttpServletRequest.URL_SESSION_ID_SOURCE);
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID, sid);
             request.setAttribute(ShiroHttpServletRequest.REFERENCED_SESSION_ID_IS_VALID, Boolean.TRUE);
         	return sid;
@@ -67,7 +68,8 @@ public class SessionManager extends DefaultWebSessionManager {
 	public void validateSessions() {
 		super.validateSessions();
 	}
-	
+
+	@Override
 	protected Session retrieveSession(SessionKey sessionKey) {
 		try{
 			return super.retrieveSession(sessionKey);
@@ -77,6 +79,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
 	}
 
+	@Override
     public Date getStartTimestamp(SessionKey key) {
     	try{
     		return super.getStartTimestamp(key);
@@ -86,6 +89,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+    @Override
     public Date getLastAccessTime(SessionKey key) {
     	try{
     		return super.getLastAccessTime(key);
@@ -95,6 +99,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public long getTimeout(SessionKey key){
     	try{
     		return super.getTimeout(key);
@@ -104,6 +109,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public void setTimeout(SessionKey key, long maxIdleTimeInMillis) {
     	try{
     		super.setTimeout(key, maxIdleTimeInMillis);
@@ -112,6 +118,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public void touch(SessionKey key) {
     	try{
 	    	super.touch(key);
@@ -120,6 +127,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public String getHost(SessionKey key) {
     	try{
     		return super.getHost(key);
@@ -129,6 +137,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public Collection<Object> getAttributeKeys(SessionKey key) {
     	try{
     		return super.getAttributeKeys(key);
@@ -138,6 +147,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public Object getAttribute(SessionKey sessionKey, Object attributeKey) {
     	try{
     		return super.getAttribute(sessionKey, attributeKey);
@@ -147,6 +157,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public void setAttribute(SessionKey sessionKey, Object attributeKey, Object value) {
     	try{
     		super.setAttribute(sessionKey, attributeKey, value);
@@ -155,6 +166,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public Object removeAttribute(SessionKey sessionKey, Object attributeKey) {
     	try{
     		return super.removeAttribute(sessionKey, attributeKey);
@@ -164,6 +176,7 @@ public class SessionManager extends DefaultWebSessionManager {
 		}
     }
 
+	@Override
     public void stop(SessionKey key) {
     	try{
     		super.stop(key);
@@ -171,7 +184,8 @@ public class SessionManager extends DefaultWebSessionManager {
     		// 获取不到SESSION不抛出异常
 		}
     }
-    
+
+	@Override
     public void checkValid(SessionKey key) {
     	try{
     		super.checkValid(key);

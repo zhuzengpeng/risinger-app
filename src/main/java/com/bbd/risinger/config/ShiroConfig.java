@@ -1,18 +1,16 @@
 package com.bbd.risinger.config;
 
 import com.bbd.risinger.common.security.shiro.session.CacheSessionDAO;
-import com.bbd.risinger.common.security.shiro.session.SessionManager;
 import com.bbd.risinger.modules.sys.security.FormAuthenticationFilter;
 import com.bbd.risinger.modules.sys.security.SystemAuthorizingRealm;
 import com.google.common.collect.Maps;
-import net.sf.ehcache.CacheManager;
-import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,6 +19,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.env.Environment;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
@@ -34,7 +33,7 @@ import java.util.Map;
  * @author	zzp
  */
 @Component
-public class ShiroConfiguration {
+public class ShiroConfig {
 
     /**
      * 全局的环境变量的设置
@@ -85,20 +84,22 @@ public class ShiroConfiguration {
         return bean;
     }
 
-    @Bean(name = "shiroCacheManager")
-    public EhCacheManager shiroCacheManager(CacheManager manager) {
-        EhCacheManager ehCacheManager = new EhCacheManager();
-        ehCacheManager.setCacheManager(manager);
-        return ehCacheManager;
-    }
+//    @Bean(name = "shiroCacheManager")
+//    public EhCacheManager shiroCacheManager(CacheManager manager) {
+//        EhCacheManager ehCacheManager = new EhCacheManager();
+//        ehCacheManager.setCacheManager(manager);
+//        return ehCacheManager;
+//    }
 
     @Bean(name = "sessionManager")
-    public SessionManager sessionManager(
+    public DefaultWebSessionManager sessionManager(
     		CacheSessionDAO dao,
     		@Value("${session.sessionTimeout}") Long sessionTimeout, 
     		@Value("${session.sessionTimeoutClean}") Long sessionValidationInterval, 
-    		@Value("${session.simpleCookie}") String simpleCookie) {
-        SessionManager sessionManager = new SessionManager();
+    		@Value("${session.simpleCookie}") String simpleCookie,
+            ShrioRedisCacheManager redisCacheManager) {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+        sessionManager.setCacheManager(redisCacheManager);
         sessionManager.setSessionDAO(dao);
         sessionManager.setGlobalSessionTimeout(sessionTimeout);
         sessionManager.setSessionValidationInterval(sessionValidationInterval);
@@ -111,13 +112,20 @@ public class ShiroConfiguration {
     @Bean(name = "securityManager")
     public DefaultWebSecurityManager defaultWebSecurityManager(
             SystemAuthorizingRealm systemAuthorizingRealm,
-            SessionManager sessionManager,
-            EhCacheManager ehCacheManager) {
+            DefaultWebSessionManager sessionManager,
+            ShrioRedisCacheManager redisCacheManager) {
         DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
         defaultWebSecurityManager.setSessionManager(sessionManager);
-        defaultWebSecurityManager.setCacheManager(ehCacheManager);
+        defaultWebSecurityManager.setCacheManager(redisCacheManager);
         defaultWebSecurityManager.setRealm(systemAuthorizingRealm);
         return defaultWebSecurityManager;
+    }
+
+    @Bean(name="shrioRedisCacheManager")
+    @DependsOn(value="redisTemplate")
+    public ShrioRedisCacheManager redisCacheManager(RedisTemplate redisTemplate) {
+        ShrioRedisCacheManager cacheManager = new ShrioRedisCacheManager(redisTemplate);
+        return cacheManager;
     }
 
     @Bean
