@@ -3,23 +3,23 @@ server:
   contextPath: /boot
   tomcat:
     uri-encoding: UTF-8
-#    basedir: /data/jeesite/tomcat
+#    basedir: /data/risinger/tomcat
     max-threads: 2000
     min-spare-threads: 10
     accesslog:
       pattern: common
       enabled: true
       directory: ../logs
-      prefix: jeesite_access_log
+      prefix: risinger-app
       suffix: .log
       request-attributes-enabled: true
       rename-on-rotate: true
 logging:
   level:
-    root: DEBUG
-    com.bbd: DEBUG
+    root: INFO
+    com.bbd: INFO
     org.apache.shiro.cache.ehcache.EhCacheManager: WARN
-    org.apache.shiro.session.mgt.AbstractValidatingSessionManager: WARN
+    org.apache.shiro.session.mgt.AbstractValidatingSessionManager: INFO
 spring:
   #数据库的配置
   datasource:

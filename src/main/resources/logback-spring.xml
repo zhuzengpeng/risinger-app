@@ -16,10 +16,10 @@
 	</appender>
 	
 	<appender name="sysDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/jeesite/logs/sys.log</file>
+		<file>/data/risinger-app/logs/sys.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>/data/jeesite/logs/sys-%d{yyyyMMdd}.log</fileNamePattern>
+			<fileNamePattern>/data/risinger-app/logs/sys-%d{yyyyMMdd}.log</fileNamePattern>
 			<!-- 保留30天的日志 -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -33,10 +33,10 @@
 	</appender>
 	
 	<appender name="infoDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/jeesite/logs/jeesite-info.log</file>
+		<file>/data/risinger-app/logs/risinger-app.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>/data/jeesite/logs/jy-info-%d{yyyyMMdd}.log</fileNamePattern>
+			<fileNamePattern>/data/risinger-app/logs/risinger-app-%d{yyyyMMdd}.log</fileNamePattern>
 			<!-- 保留30天的日志 -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -52,10 +52,10 @@
 	</appender>
 	
 	<appender name="severeDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/jeesite/logs/jeesite-severe.log</file>
+		<file>/data/risinger-app/logs/risinger-app-severe.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>/data/jeesite/logs/jeesite-severe-%d{yyyyMMdd}.log</fileNamePattern>
+			<fileNamePattern>/data/risinger-app/logs/risinger-app-severe-%d{yyyyMMdd}.log</fileNamePattern>
 			<!-- 保留30天的日志 -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -69,7 +69,7 @@
 		</filter> 
 	</appender>
 	
-	<logger name="com.thinkgem" level="INFO">
+	<logger name="com.bbd.risinger" level="INFO">
 		<appender-ref ref="infoDailyRollingFile" />
 		<appender-ref ref="severeDailyRollingFile" />
 	</logger>
