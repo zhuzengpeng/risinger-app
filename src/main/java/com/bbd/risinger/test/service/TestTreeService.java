@@ -21,22 +21,26 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class TestTreeService extends TreeService<TestTreeDao, TestTree> {
 
+	@Override
 	public TestTree get(String id) {
 		return super.get(id);
 	}
-	
+
+	@Override
 	public List<TestTree> findList(TestTree testTree) {
 		if (StringUtils.isNotBlank(testTree.getParentIds())){
 			testTree.setParentIds(","+testTree.getParentIds()+",");
 		}
 		return super.findList(testTree);
 	}
-	
+
+	@Override
 	@Transactional(readOnly = false)
 	public void save(TestTree testTree) {
 		super.save(testTree);
 	}
-	
+
+	@Override
 	@Transactional(readOnly = false)
 	public void delete(TestTree testTree) {
 		super.delete(testTree);

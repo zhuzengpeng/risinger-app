@@ -72,12 +72,14 @@ public class Test extends DataEntity<Test> {
 
 	@SupCol(text="创建时间", sort = 1, groupId="date", width="125px")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Override
 	public Date getCreateDate() {
 		return createDate;
 	}
 
 	@SupCol(text="修改时间", sort = 2, groupId="date", width="125px")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@Override
 	public Date getUpdateDate() {
 		return updateDate;
 	}

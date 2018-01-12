@@ -269,10 +269,8 @@ public class ImportExcel {
 			public int compare(Object[] o1, Object[] o2) {
 				return new Integer(((ExcelField)o1[0]).sort()).compareTo(
 						new Integer(((ExcelField)o2[0]).sort()));
-			};
+			}
 		});
-		//log.debug("Import column count:"+annotationList.size());
-		// Get excel data
 		List<E> dataList = Lists.newArrayList();
 		for (int i = this.getDataRowNum(); i < this.getLastDataRowNum(); i++) {
 			E e = cls.newInstance();
@@ -286,9 +284,7 @@ public class ImportExcel {
 					// If is dict type, get dict value
 					if (StringUtils.isNotBlank(ef.dictType())){
 						val = DictUtils.getDictValue(val.toString(), ef.dictType(), "");
-						//log.debug("Dictionary type value: ["+i+","+colunm+"] " + val);
 					}
-					// Get param type and type cast
 					Class<?> valType = Class.class;
 					if (os[1] instanceof Field){
 						valType = ((Field)os[1]).getType();
@@ -300,7 +296,6 @@ public class ImportExcel {
 							valType = ((Method)os[1]).getParameterTypes()[0];
 						}
 					}
-					//log.debug("Import value type: ["+i+","+column+"] " + valType);
 					try {
 						if (valType == String.class){
 							String s = String.valueOf(val.toString());

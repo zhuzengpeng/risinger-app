@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.bbd.risinger.common.utils;
 
 import java.io.UnsupportedEncodingException;
@@ -27,8 +24,9 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 	
     private static final char SEPARATOR = '_';
     private static final String CHARSET_NAME = "UTF-8";
-    
-    /**
+	private static Pattern p = Pattern.compile("<([a-zA-Z]+)[^<>]*>");
+
+	/**
      * 转换为字节数组
      * @param str
      * @return
@@ -47,7 +45,7 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
     
     /**
      * 转换为字节数组
-     * @param str
+     * @param bytes
      * @return
      */
     public static String toString(byte[] bytes){
@@ -190,7 +188,6 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
 		temp_result = temp_result.replaceAll("<([a-zA-Z]+)[^<>]*>(.*?)</\\1>",
 				"$2");
 		// 用正则表达式取出标记
-		Pattern p = Pattern.compile("<([a-zA-Z]+)[^<>]*>");
 		Matcher m = p.matcher(temp_result);
 		List<String> endHTML = Lists.newArrayList();
 		while (m.find()) {

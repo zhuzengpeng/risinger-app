@@ -11,6 +11,7 @@ package com.bbd.risinger.common.persistence.dialect;
  */
 public class PostgreSQLDialect implements Dialect {
 
+    @Override
     public boolean supportsLimit() {
         return true;
     }

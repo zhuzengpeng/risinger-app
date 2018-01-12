@@ -147,8 +147,6 @@ public class MacUtils {
 				/**
 				 * 寻找标示字符串[physical address]
 				 */
-//				index = line.toLowerCase().indexOf("physical address");
-//				if (index != -1) {
 				if (line.split("-").length == 6){
 					index = line.indexOf(":");
 					if (index != -1) {

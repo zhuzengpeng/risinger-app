@@ -84,8 +84,9 @@ private static Logger logger = LoggerFactory.getLogger(Global.class);
         if (value == null) {
             try {
                 value = resolver.getProperty(key);
-                if (StringUtils.isBlank(value))
-                    throw new RuntimeException("value null");
+                if (StringUtils.isBlank(value)) {
+					throw new RuntimeException("value null");
+				}
                 map.put(key, value);
             } catch (Exception e) {
                 value = loader.getProperty(key);
@@ -197,8 +198,9 @@ private static Logger logger = LoggerFactory.getLogger(Global.class);
     }
 
     public static String getJdbcType() {
-        if (map.containsKey("spring.datasource.url"))
-            return map.get("spring.datasource.url");
+        if (map.containsKey("spring.datasource.url")) {
+			return map.get("spring.datasource.url");
+		}
         try {
             String url = resolver.getProperty("spring.datasource.url");
             String type = getDbType(url);

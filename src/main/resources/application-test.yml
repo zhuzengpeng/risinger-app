@@ -54,3 +54,7 @@ spring:
        maxIdle: 300
        maxTotal: 60000
        testOnBorrow: true
+
+#会话过期时间
+session.sessionTimeout: 1800000
+session.sessionTimeoutClean: 120000

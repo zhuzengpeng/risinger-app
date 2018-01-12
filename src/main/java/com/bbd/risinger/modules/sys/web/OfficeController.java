@@ -53,7 +53,6 @@ public class OfficeController extends BaseController {
 	@RequiresPermissions("sys:office:view")
 	@RequestMapping(value = {""})
 	public String index(Office office, Model model) {
-//        model.addAttribute("list", officeService.findAll());
 		return "modules/sys/officeIndex";
 	}
 
@@ -157,7 +156,7 @@ public class OfficeController extends BaseController {
 		for (int i=0; i<list.size(); i++){
 			Office e = list.get(i);
 			if ((StringUtils.isBlank(extId) || (extId!=null && !extId.equals(e.getId()) && e.getParentIds().indexOf(","+extId+",")==-1))
-					&& (type == null || (type != null && (type.equals("1") ? type.equals(e.getType()) : true)))
+					&& (type == null || (type != null && ("1".equals(type) ? type.equals(e.getType()) : true)))
 					&& (grade == null || (grade != null && Integer.parseInt(e.getGrade()) <= grade.intValue()))
 					&& Global.YES.equals(e.getUseable())){
 				Map<String, Object> map = Maps.newHashMap();

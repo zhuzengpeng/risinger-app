@@ -392,7 +392,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 写入文件
-	 * @param file 要写入的文件
+	 * @param fileName 要写入的文件
 	 */
 	public static void writeToFile(String fileName, String content, boolean append) {
 		try {
@@ -405,7 +405,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 写入文件
-	 * @param file 要写入的文件
+	 * @param fileName 要写入的文件
 	 */
 	public static void writeToFile(String fileName, String content, String encoding, boolean append) {
 		try {
@@ -586,7 +586,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 
 	/**
 	 * 获取待压缩文件在ZIP文件中entry的名字，即相对于跟目录的相对路径名
-	 * @param dirPat 目录名
+	 * @param dirPath 目录名
 	 * @param file entry文件名
 	 * @return
 	 */
@@ -612,120 +612,121 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 	 */
 	public static String getContentType(String returnFileName) {
 		String contentType = "application/octet-stream";
-		if (returnFileName.lastIndexOf(".") < 0)
+		if (returnFileName.lastIndexOf(".") < 0) {
 			return contentType;
+		}
 		returnFileName = returnFileName.toLowerCase();
 		returnFileName = returnFileName.substring(returnFileName.lastIndexOf(".") + 1);
-		if (returnFileName.equals("html") || returnFileName.equals("htm") || returnFileName.equals("shtml")) {
+		if ("html".equals(returnFileName) || "htm".equals(returnFileName) || "shtml".equals(returnFileName)) {
 			contentType = "text/html";
-		} else if (returnFileName.equals("apk")) {
+		} else if ("apk".equals(returnFileName)) {
 			contentType = "application/vnd.android.package-archive";
-		} else if (returnFileName.equals("sis")) {
+		} else if ("sis".equals(returnFileName)) {
 			contentType = "application/vnd.symbian.install";
-		} else if (returnFileName.equals("sisx")) {
+		} else if ("sisx".equals(returnFileName)) {
 			contentType = "application/vnd.symbian.install";
-		} else if (returnFileName.equals("exe")) {
+		} else if ("exe".equals(returnFileName)) {
 			contentType = "application/x-msdownload";
-		} else if (returnFileName.equals("msi")) {
+		} else if ("msi".equals(returnFileName)) {
 			contentType = "application/x-msdownload";
-		} else if (returnFileName.equals("css")) {
+		} else if ("css".equals(returnFileName)) {
 			contentType = "text/css";
-		} else if (returnFileName.equals("xml")) {
+		} else if ("xml".equals(returnFileName)) {
 			contentType = "text/xml";
-		} else if (returnFileName.equals("gif")) {
+		} else if ("gif".equals(returnFileName)) {
 			contentType = "image/gif";
-		} else if (returnFileName.equals("jpeg") || returnFileName.equals("jpg")) {
+		} else if ("jpeg".equals(returnFileName) || "jpg".equals(returnFileName)) {
 			contentType = "image/jpeg";
-		} else if (returnFileName.equals("js")) {
+		} else if ("js".equals(returnFileName)) {
 			contentType = "application/x-javascript";
-		} else if (returnFileName.equals("atom")) {
+		} else if ("atom".equals(returnFileName)) {
 			contentType = "application/atom+xml";
-		} else if (returnFileName.equals("rss")) {
+		} else if ("rss".equals(returnFileName)) {
 			contentType = "application/rss+xml";
-		} else if (returnFileName.equals("mml")) {
+		} else if ("mml".equals(returnFileName)) {
 			contentType = "text/mathml";
-		} else if (returnFileName.equals("txt")) {
+		} else if ("txt".equals(returnFileName)) {
 			contentType = "text/plain";
-		} else if (returnFileName.equals("jad")) {
+		} else if ("jad".equals(returnFileName)) {
 			contentType = "text/vnd.sun.j2me.app-descriptor";
-		} else if (returnFileName.equals("wml")) {
+		} else if ("wml".equals(returnFileName)) {
 			contentType = "text/vnd.wap.wml";
-		} else if (returnFileName.equals("htc")) {
+		} else if ("htc".equals(returnFileName)) {
 			contentType = "text/x-component";
-		} else if (returnFileName.equals("png")) {
+		} else if ("png".equals(returnFileName)) {
 			contentType = "image/png";
-		} else if (returnFileName.equals("tif") || returnFileName.equals("tiff")) {
+		} else if ("tif".equals(returnFileName) || "tiff".equals(returnFileName)) {
 			contentType = "image/tiff";
-		} else if (returnFileName.equals("wbmp")) {
+		} else if ("wbmp".equals(returnFileName)) {
 			contentType = "image/vnd.wap.wbmp";
-		} else if (returnFileName.equals("ico")) {
+		} else if ("ico".equals(returnFileName)) {
 			contentType = "image/x-icon";
-		} else if (returnFileName.equals("jng")) {
+		} else if ("jng".equals(returnFileName)) {
 			contentType = "image/x-jng";
-		} else if (returnFileName.equals("bmp")) {
+		} else if ("bmp".equals(returnFileName)) {
 			contentType = "image/x-ms-bmp";
-		} else if (returnFileName.equals("svg")) {
+		} else if ("svg".equals(returnFileName)) {
 			contentType = "image/svg+xml";
-		} else if (returnFileName.equals("jar") || returnFileName.equals("var") 
-				|| returnFileName.equals("ear")) {
+		} else if ("jar".equals(returnFileName) || "var".equals(returnFileName)
+				|| "ear".equals(returnFileName)) {
 			contentType = "application/java-archive";
-		} else if (returnFileName.equals("doc")) {
+		} else if ("doc".equals(returnFileName)) {
 			contentType = "application/msword";
-		} else if (returnFileName.equals("pdf")) {
+		} else if ("pdf".equals(returnFileName)) {
 			contentType = "application/pdf";
-		} else if (returnFileName.equals("rtf")) {
+		} else if ("rtf".equals(returnFileName)) {
 			contentType = "application/rtf";
-		} else if (returnFileName.equals("xls")) {
+		} else if ("xls".equals(returnFileName)) {
 			contentType = "application/vnd.ms-excel";
-		} else if (returnFileName.equals("ppt")) {
+		} else if ("ppt".equals(returnFileName)) {
 			contentType = "application/vnd.ms-powerpoint";
-		} else if (returnFileName.equals("7z")) {
+		} else if ("7z".equals(returnFileName)) {
 			contentType = "application/x-7z-compressed";
-		} else if (returnFileName.equals("rar")) {
+		} else if ("rar".equals(returnFileName)) {
 			contentType = "application/x-rar-compressed";
-		} else if (returnFileName.equals("swf")) {
+		} else if ("swf".equals(returnFileName)) {
 			contentType = "application/x-shockwave-flash";
-		} else if (returnFileName.equals("rpm")) {
+		} else if ("rpm".equals(returnFileName)) {
 			contentType = "application/x-redhat-package-manager";
-		} else if (returnFileName.equals("der") || returnFileName.equals("pem")
-				|| returnFileName.equals("crt")) {
+		} else if ("der".equals(returnFileName) || "pem".equals(returnFileName)
+				|| "crt".equals(returnFileName)) {
 			contentType = "application/x-x509-ca-cert";
-		} else if (returnFileName.equals("xhtml")) {
+		} else if ("xhtml".equals(returnFileName)) {
 			contentType = "application/xhtml+xml";
-		} else if (returnFileName.equals("zip")) {
+		} else if ("zip".equals(returnFileName)) {
 			contentType = "application/zip";
-		} else if (returnFileName.equals("mid") || returnFileName.equals("midi") 
-				|| returnFileName.equals("kar")) {
+		} else if ("mid".equals(returnFileName) || "midi".equals(returnFileName)
+				|| "kar".equals(returnFileName)) {
 			contentType = "audio/midi";
-		} else if (returnFileName.equals("mp3")) {
+		} else if ("mp3".equals(returnFileName)) {
 			contentType = "audio/mpeg";
-		} else if (returnFileName.equals("ogg")) {
+		} else if ("ogg".equals(returnFileName)) {
 			contentType = "audio/ogg";
-		} else if (returnFileName.equals("m4a")) {
+		} else if ("m4a".equals(returnFileName)) {
 			contentType = "audio/x-m4a";
-		} else if (returnFileName.equals("ra")) {
+		} else if ("ra".equals(returnFileName)) {
 			contentType = "audio/x-realaudio";
-		} else if (returnFileName.equals("3gpp")
-				|| returnFileName.equals("3gp")) {
+		} else if ("3gpp".equals(returnFileName)
+				|| "3gp".equals(returnFileName)) {
 			contentType = "video/3gpp";
-		} else if (returnFileName.equals("mp4")) {
+		} else if ("mp4".equals(returnFileName)) {
 			contentType = "video/mp4";
-		} else if (returnFileName.equals("mpeg")
-				|| returnFileName.equals("mpg")) {
+		} else if ("mpeg".equals(returnFileName)
+				|| "mpg".equals(returnFileName)) {
 			contentType = "video/mpeg";
-		} else if (returnFileName.equals("mov")) {
+		} else if ("mov".equals(returnFileName)) {
 			contentType = "video/quicktime";
-		} else if (returnFileName.equals("flv")) {
+		} else if ("flv".equals(returnFileName)) {
 			contentType = "video/x-flv";
-		} else if (returnFileName.equals("m4v")) {
+		} else if ("m4v".equals(returnFileName)) {
 			contentType = "video/x-m4v";
-		} else if (returnFileName.equals("mng")) {
+		} else if ("mng".equals(returnFileName)) {
 			contentType = "video/x-mng";
-		} else if (returnFileName.equals("asx") || returnFileName.equals("asf")) {
+		} else if ("asx".equals(returnFileName) || "asf".equals(returnFileName)) {
 			contentType = "video/x-ms-asf";
-		} else if (returnFileName.equals("wmv")) {
+		} else if ("wmv".equals(returnFileName)) {
 			contentType = "video/x-ms-wmv";
-		} else if (returnFileName.equals("avi")) {
+		} else if ("avi".equals(returnFileName)) {
 			contentType = "video/x-msvideo";
 		}
 		return contentType;
@@ -780,7 +781,7 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		RandomAccessFile raf = null; // 负责读取数据
 		OutputStream os = null; 	// 写出数据
 		OutputStream out = null; 	// 缓冲
-		byte b[] = new byte[1024]; 	// 暂存容器
+		byte[] b = new byte[1024]; 	// 暂存容器
 
 		if (request.getHeader("Range") != null) { // 客户端请求的下载的文件块的开始字节
 			response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
@@ -812,13 +813,15 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 			// 不是从最开始下载, 响应的格式是: Content-Range: bytes [文件块的开始字节]-[文件的总大小 - 1]/[文件的总大小]
 			logger.debug("---------------不是从开始进行下载！服务器即将开始断点续传...");
 			switch (rangeSwitch) {
-				case 1: { // 针对 bytes=27000- 的请求
+				// 针对 bytes=27000- 的请求
+				case 1: {
 					String contentRange = new StringBuffer("bytes ").append(new Long(pastLength).toString()).append("-")
 							.append(new Long(fileLength - 1).toString()).append("/").append(new Long(fileLength).toString()).toString();
 					response.setHeader("Content-Range", contentRange);
 					break;
 				}
-				case 2: { // 针对 bytes=27000-39000 的请求
+				// 针对 bytes=27000-39000 的请求
+				case 2: {
 					String contentRange = rangeBytes + "/" + new Long(fileLength).toString();
 					response.setHeader("Content-Range", contentRange);
 					break;
@@ -835,33 +838,42 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 		try {
 			response.addHeader("Content-Disposition", "attachment; filename=\"" + 
 					Encodes.urlEncode(StringUtils.isBlank(fileName) ? file.getName() : fileName) + "\"");
-			response.setContentType(getContentType(file.getName())); // set the MIME type.
+			// set the MIME type.
+			response.setContentType(getContentType(file.getName()));
 			response.addHeader("Content-Length", String.valueOf(contentLength));
 			os = response.getOutputStream();
 			out = new BufferedOutputStream(os);
 			raf = new RandomAccessFile(file, "r");
 			try {
 				switch (rangeSwitch) {
-					case 0: { // 普通下载，或者从头开始的下载 同1
+					// 普通下载，或者从头开始的下载 同1
+					case 0: {
 					}
-					case 1: { // 针对 bytes=27000- 的请求
-						raf.seek(pastLength); // 形如 bytes=969998336- 的客户端请求，跳过 969998336 个字节
+					// 针对 bytes=27000- 的请求
+					case 1: {
+						// 形如 bytes=969998336- 的客户端请求，跳过 969998336 个字节
+						raf.seek(pastLength);
 						int n = 0;
 						while ((n = raf.read(b, 0, 1024)) != -1) {
 							out.write(b, 0, n);
 						}
 						break;
 					}
-					case 2: { // 针对 bytes=27000-39000 的请求
-						raf.seek(pastLength); // 形如 bytes=1275856879-1275877358 的客户端请求，找到第 1275856879 个字节
+					// 针对 bytes=27000-39000 的请求
+					case 2: {
+						// 形如 bytes=1275856879-1275877358 的客户端请求，找到第 1275856879 个字节
+						raf.seek(pastLength);
 						int n = 0;
-						long readLength = 0; // 记录已读字节数
-						while (readLength <= contentLength - 1024) {// 大部分字节在这里读取
+						// 记录已读字节数
+						long readLength = 0;
+						// 大部分字节在这里读取
+						while (readLength <= contentLength - 1024) {
 							n = raf.read(b, 0, 1024);
 							readLength += 1024;
 							out.write(b, 0, n);
 						}
-						if (readLength <= contentLength) { // 余下的不足 1024 个字节在这里读取
+						// 余下的不足 1024 个字节在这里读取
+						if (readLength <= contentLength) {
 							n = raf.read(b, 0, (int) (contentLength - readLength));
 							out.write(b, 0, n);
 						}
@@ -920,7 +932,8 @@ public class FileUtils extends org.apache.commons.io.FileUtils {
 			p = p + "/";
 		}
 		if (path != null && path.startsWith("/")){
-			p = "/" + p; // linux下路径
+			// linux下路径
+			p = "/" + p;
 		}
 		return p;
 	}

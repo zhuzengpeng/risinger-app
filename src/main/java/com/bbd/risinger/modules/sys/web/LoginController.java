@@ -58,8 +58,9 @@ public class LoginController extends BaseController {
             logger.debug("login, active session size: {}", sessionDAO.getActiveSessions(false).size());
         }
         // 如果已经登录，则跳转到管理首页
-        if (principal != null && !principal.isMobileLogin())
+        if (principal != null && !principal.isMobileLogin()) {
             return "redirect:" + adminPath;
+        }
         return "modules/sys/sysLogin";
     }
 

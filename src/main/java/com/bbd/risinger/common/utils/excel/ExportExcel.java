@@ -279,7 +279,6 @@ public class ExportExcel {
 		
 		style = wb.createCellStyle();
 		style.cloneStyleFrom(styles.get("data"));
-//		style.setWrapText(true);
 		style.setAlignment(CellStyle.ALIGN_CENTER);
 		style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
 		style.setFillPattern(CellStyle.SOLID_FOREGROUND);

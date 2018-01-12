@@ -84,7 +84,6 @@ public abstract class BaseService {
 					}
 				}else {
 					for (String oa : StringUtils.split(officeAlias, ",")){
-						//sqlString.append(" OR " + oa + ".id  = " + user.getOffice().getId());
 						sqlString.append(" OR " + oa + ".id IS NULL");
 					}
 				}

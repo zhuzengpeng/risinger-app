@@ -275,9 +275,6 @@ public class Page<T> {
 		sb.insert(0,"<ul>\n").append("</ul>\n");
 		
 		sb.append("<div style=\"clear:both;\"></div>");
-
-//		sb.insert(0,"<div class=\"page\">\n").append("</div>\n");
-		
 		return sb.toString();
 	}
 	

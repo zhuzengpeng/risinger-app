@@ -88,6 +88,7 @@ public class User extends DataEntity<User> {
 		this.loginFlag = loginFlag;
 	}
 
+	@Override
 	@ExcelField(title="ID", type=1, align=2, sort=1)
 	public String getId() {
 		return id;
@@ -186,6 +187,7 @@ public class User extends DataEntity<User> {
 		this.mobile = mobile;
 	}
 
+	@Override
 	@ExcelField(title="备注", align=1, sort=900)
 	public String getRemarks() {
 		return remarks;
@@ -201,6 +203,7 @@ public class User extends DataEntity<User> {
 		this.userType = userType;
 	}
 
+	@Override
 	@ExcelField(title="创建时间", type=0, align=1, sort=90)
 	public Date getCreateDate() {
 		return createDate;

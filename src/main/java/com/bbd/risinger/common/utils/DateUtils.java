@@ -119,7 +119,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return
 	 */
 	public static long pastDays(Date date) {
-		long t = new Date().getTime()-date.getTime();
+		long t = System.currentTimeMillis()-date.getTime();
 		return t/(24*60*60*1000);
 	}
 
@@ -129,7 +129,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return
 	 */
 	public static long pastHour(Date date) {
-		long t = new Date().getTime()-date.getTime();
+		long t = System.currentTimeMillis()-date.getTime();
 		return t/(60*60*1000);
 	}
 	
@@ -139,7 +139,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 	 * @return
 	 */
 	public static long pastMinutes(Date date) {
-		long t = new Date().getTime()-date.getTime();
+		long t = System.currentTimeMillis()-date.getTime();
 		return t/(60*1000);
 	}
 	
@@ -169,15 +169,5 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
 		long afterTime = after.getTime();
 		return (afterTime - beforeTime) / (1000 * 60 * 60 * 24);
 	}
-	
-	/**
-	 * @param args
-	 * @throws ParseException
-	 */
-//	public static void main(String[] args) throws ParseException {
-//		System.out.println(formatDate(parseDate("2010/3/6")));
-//		System.out.println(getDate("yyyy年MM月dd日 E"));
-//		long time = new Date().getTime()-parseDate("2012-11-19").getTime();
-//		System.out.println(time/(24*60*60*1000));
-//	}
+
 }

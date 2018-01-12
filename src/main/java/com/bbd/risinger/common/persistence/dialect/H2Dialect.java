@@ -12,6 +12,7 @@ package com.bbd.risinger.common.persistence.dialect;
  */
 public class H2Dialect implements Dialect {
 
+    @Override
     public boolean supportsLimit() {
         return true;
     }

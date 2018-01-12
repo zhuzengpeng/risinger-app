@@ -161,7 +161,7 @@ public class MenuController extends BaseController {
 		for (int i=0; i<list.size(); i++){
 			Menu e = list.get(i);
 			if (StringUtils.isBlank(extId) || (extId!=null && !extId.equals(e.getId()) && e.getParentIds().indexOf(","+extId+",")==-1)){
-				if(isShowHide != null && isShowHide.equals("0") && e.getIsShow().equals("0")){
+				if(isShowHide != null && "0".equals(isShowHide) && "0".equals(e.getIsShow())){
 					continue;
 				}
 				Map<String, Object> map = Maps.newHashMap();

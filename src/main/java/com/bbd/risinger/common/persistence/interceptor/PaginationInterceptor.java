@@ -63,9 +63,6 @@ public class PaginationInterceptor extends BaseInterceptor {
 
                 //分页查询 本地化对象 修改数据库注意修改实现
                 String pageSql = SQLHelper.generatePageSql(originalSql, page, DIALECT);
-//                if (log.isDebugEnabled()) {
-//                    log.debug("PAGE SQL:" + StringUtils.replace(pageSql, "\n", ""));
-//                }
                 invocation.getArgs()[2] = new RowBounds(RowBounds.NO_ROW_OFFSET, RowBounds.NO_ROW_LIMIT);
                 BoundSql newBoundSql = new BoundSql(mappedStatement.getConfiguration(), pageSql, boundSql.getParameterMappings(), boundSql.getParameterObject());
                 //解决MyBatis 分页foreach 参数失效 start

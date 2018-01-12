@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.bbd.risinger.common.persistence.interceptor;
 
 import java.sql.Connection;
@@ -39,6 +36,7 @@ import com.bbd.risinger.common.utils.StringUtils;
  */
 public class SQLHelper {
 
+    private static Pattern p = Pattern.compile("order\\s*by[\\w|\\W|\\s|\\S]*", Pattern.CASE_INSENSITIVE);
     /**
      * 对SQL参数(?)设值,参考org.apache.ibatis.executor.parameter.DefaultParameterHandler
      *
@@ -185,7 +183,6 @@ public class SQLHelper {
      * @return
      */
     private static String removeOrders(String qlString) {
-        Pattern p = Pattern.compile("order\\s*by[\\w|\\W|\\s|\\S]*", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(qlString);
         StringBuffer sb = new StringBuffer();
         while (m.find()) {

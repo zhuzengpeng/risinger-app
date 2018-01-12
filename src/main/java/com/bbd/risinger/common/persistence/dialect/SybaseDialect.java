@@ -13,6 +13,7 @@ package com.bbd.risinger.common.persistence.dialect;
  */
 public class SybaseDialect implements Dialect {
 
+    @Override
     public boolean supportsLimit() {
         return false;
     }

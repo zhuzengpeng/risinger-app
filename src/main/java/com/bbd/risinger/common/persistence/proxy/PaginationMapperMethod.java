@@ -4,6 +4,7 @@
 package com.bbd.risinger.common.persistence.proxy;
 
 import com.bbd.risinger.common.persistence.Page;
+import com.google.common.collect.Maps;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.mapping.MappedStatement;
@@ -122,7 +123,7 @@ public class PaginationMapperMethod {
         } else if (!hasNamedParameters && paramCount == 1) {
             return args[paramPositions.get(0)];
         } else {
-            Map<String, Object> param = new HashMap<String, Object>();
+            Map<String, Object> param = Maps.newHashMap();
             for (int i = 0; i < paramCount; i++) {
                 param.put(paramNames.get(i), args[paramPositions.get(i)]);
             }

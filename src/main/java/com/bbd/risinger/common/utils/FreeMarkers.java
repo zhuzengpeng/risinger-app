@@ -1,6 +1,3 @@
-/**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
- */
 package com.bbd.risinger.common.utils;
 
 import freemarker.template.Configuration;
@@ -23,7 +20,7 @@ public class FreeMarkers {
 	public static String renderString(String templateString, Map<String, ?> model) {
 		try {
 			StringWriter result = new StringWriter();
-			Template t = new Template("name", new StringReader(templateString), new Configuration());
+			Template t = new Template("name", new StringReader(templateString), new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS));
 			t.process(model, result);
 			return result.toString();
 		} catch (Exception e) {
@@ -42,7 +39,7 @@ public class FreeMarkers {
 	}
 
 	public static Configuration buildConfiguration(String directory) throws IOException {
-		Configuration cfg = new Configuration();
+		Configuration cfg = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
 		Resource path = new DefaultResourceLoader().getResource(directory);
 		cfg.setDirectoryForTemplateLoading(path.getFile());
 		return cfg;

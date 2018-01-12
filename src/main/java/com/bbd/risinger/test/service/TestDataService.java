@@ -21,23 +21,28 @@ import java.util.List;
 @Transactional(readOnly = true)
 public class TestDataService extends CrudService<TestDataDao, TestData> {
 
+	@Override
 	public TestData get(String id) {
 		return super.get(id);
 	}
-	
+
+	@Override
 	public List<TestData> findList(TestData testData) {
 		return super.findList(testData);
 	}
-	
+
+	@Override
 	public Page<TestData> findPage(Page<TestData> page, TestData testData) {
 		return super.findPage(page, testData);
 	}
-	
+
+	@Override
 	@Transactional(readOnly = false)
 	public void save(TestData testData) {
 		super.save(testData);
 	}
-	
+
+	@Override
 	@Transactional(readOnly = false)
 	public void delete(TestData testData) {
 		super.delete(testData);

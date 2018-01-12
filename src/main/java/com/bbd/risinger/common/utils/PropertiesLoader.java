@@ -157,7 +157,7 @@ public class PropertiesLoader {
                         props.put(key, map.get(key));
                     }
                 } catch (Exception e) {
-                    //e.printStackTrace(System.out);
+                    e.printStackTrace();
                 }
             }
         }
@@ -181,8 +181,9 @@ public class PropertiesLoader {
                     String mapKey = currentkey + "." + key.toString();
                     values.put(mapKey, currentMap.get(key).toString());
                 }
-            } else
+            } else {
                 values.put(currentkey, String.valueOf(currentObj));
+            }
         }
         return values;
     }

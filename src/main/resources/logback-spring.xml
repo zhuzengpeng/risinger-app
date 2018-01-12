@@ -3,6 +3,8 @@
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
 	<jmxConfigurator/>
+	<property name="LOG_HOME" value="/home/logs" />
+	<property name="APP_NAME" value="resinger-app" />
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<!-- Log message format -->
 		<encoder>
@@ -16,10 +18,10 @@
 	</appender>
 	
 	<appender name="sysDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/risinger-app/logs/sys.log</file>
+		<file>${LOG_HOME}/${APP_NAME}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<!-- daily rollover -->
-			<fileNamePattern>/data/risinger-app/logs/sys-%d{yyyyMMdd}.log</fileNamePattern>
+			<fileNamePattern>${LOG_HOME}/${APP_NAME}-%d{yyyyMMdd}.log</fileNamePattern>
 			<!-- 保留30天的日志 -->
 			<maxHistory>30</maxHistory>
 		</rollingPolicy>
@@ -31,51 +33,22 @@
 			<level>INFO</level>
 		</filter>
 	</appender>
-	
-	<appender name="infoDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/risinger-app/logs/risinger-app.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- daily rollover -->
-			<fileNamePattern>/data/risinger-app/logs/risinger-app-%d{yyyyMMdd}.log</fileNamePattern>
-			<!-- 保留30天的日志 -->
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5level --- [%thread] %logger{36} : %msg%n</pattern>
-			<charset>UTF-8</charset>
-		</encoder>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter> 
-	</appender>
-	
-	<appender name="severeDailyRollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/data/risinger-app/logs/risinger-app-severe.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<!-- daily rollover -->
-			<fileNamePattern>/data/risinger-app/logs/risinger-app-severe-%d{yyyyMMdd}.log</fileNamePattern>
-			<!-- 保留30天的日志 -->
-			<maxHistory>30</maxHistory>
-		</rollingPolicy>
-		<encoder>
-			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5level --- [%thread] %logger{36} : %msg%n</pattern>
-			<charset>UTF-8</charset>
-		</encoder>
-		<!-- deny all events with a level below WARN, that is TRACE, DEBUG, and INFO -->
-		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-			<level>WARN</level>
-		</filter> 
-	</appender>
-	
-	<logger name="com.bbd.risinger" level="INFO">
-		<appender-ref ref="infoDailyRollingFile" />
-		<appender-ref ref="severeDailyRollingFile" />
-	</logger>
 
-	<!-- the root level of logging -->
-	<root level="INFO">
-		<appender-ref ref="sysDailyRollingFile" />
-	</root>
+	<springProfile name="dev">
+		<root level="DEBUG">
+			<appender-ref ref="console" />
+		</root>
+	</springProfile>
+
+	<springProfile name="test">
+		<root level="INFO">
+			<appender-ref ref="sysDailyRollingFile" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<root level="INFO">
+			<appender-ref ref="sysDailyRollingFile" />
+		</root>
+	</springProfile>
 </configuration>

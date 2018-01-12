@@ -1,5 +1,7 @@
 package com.bbd.risinger.common.mapper.adapters;
 
+import com.google.common.collect.Maps;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,7 @@ public class MapAdapter extends XmlAdapter<MapConvertor, Map<String, Object>> {
   
     @Override  
     public Map<String, Object> unmarshal(MapConvertor map) throws Exception {  
-        Map<String, Object> result = new HashMap<String, Object>();  
+        Map<String, Object> result = Maps.newHashMap();
         for (MapConvertor.MapEntry e : map.getEntries()) {  
             result.put(e.getKey(), e.getValue());  
         }  

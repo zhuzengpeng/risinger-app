@@ -14,6 +14,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.common.collect.Maps;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -81,8 +82,8 @@ public class UploadUtils {
 		// 验证
 		infos[0] = this.validateFields(request);
 		// 初始化表单元素
-		Map<String, Object> fieldsMap = new HashMap<String, Object>();
-		if (infos[0].equals("true")) {
+		Map<String, Object> fieldsMap = Maps.newHashMap();
+		if ("true".equals(infos[0])) {
 			fieldsMap = this.initFields(request);
 		}
 		// 上传
@@ -263,11 +264,6 @@ public class UploadUtils {
 				File uploadedFile = new File(savePath, newFileName);
 
 				item.write(uploadedFile);
-
-				/*
-				 * FileOutputStream fos = new FileOutputStream(uploadFile); // 文件全在内存中 if (item.isInMemory()) { fos.write(item.get()); } else { InputStream is = item.getInputStream(); byte[] buffer =
-				 * new byte[1024]; int len; while ((len = is.read(buffer)) > 0) { fos.write(buffer, 0, len); } is.close(); } fos.close(); item.delete();
-				 */
 			} catch (IOException e) {
 				e.printStackTrace();
 				System.out.println("上传失败了！！！");
